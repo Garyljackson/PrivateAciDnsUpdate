@@ -95,7 +95,7 @@ az network private-dns record-set a create \
 az container create \
     --name $aci_container_name \
     --resource-group $resource_group_name \
-    --image $acr_name.azurecr.io/examples/$aci_sidecar_image_name \
+    --image $acr_login_server/examples/$aci_sidecar_image_name:latest \
     --vnet $vnet_name \
     --subnet $aci_subnet_name \
     --registry-login-server $acr_login_server \
@@ -105,6 +105,7 @@ az container create \
     ACI_INSTANCE_NAME=$aci_container_name \
     RESOURCE_GROUP=$resource_group_name \
     A_RECORD_NAME=$dns_a_record \
+    --secure-environment-variables \
     APP_ID=$service_principal_app_id \
     APP_PASSWORD=$service_principal_password \
     APP_TENANT_ID=$service_principal_tenant
