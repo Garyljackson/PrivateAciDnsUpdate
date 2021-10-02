@@ -105,6 +105,7 @@ az container create \
     ACI_INSTANCE_NAME=$aci_container_name \
     RESOURCE_GROUP=$resource_group_name \
     A_RECORD_NAME=$dns_a_record \
+    DNS_ZONE_NAME=$dns_zone \
     --secure-environment-variables \
     APP_ID=$service_principal_app_id \
     APP_PASSWORD=$service_principal_password \
