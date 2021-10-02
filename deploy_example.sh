@@ -86,10 +86,11 @@ az network private-dns link vnet create \
     --registration-enabled false
 
 # Add an initial placeholder A record
-az network private-dns record-set a create \
-    --name $dns_a_record \
+az network private-dns record-set a add-record \
+    --record-set-name $dns_a_record \
     --resource-group $resource_group_name \
-    --zone-name $dns_zone
+    --zone-name $dns_zone \
+    --ipv4-address 0.0.0.0
 
 # Deploy the ACI instance to the virtual network
 az container create \
